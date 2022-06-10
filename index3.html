@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spam</title>
+</head>
+
+<body>
+    <textarea id="message" cols="30" rows="10"></textarea>
+    <div class="text"> </div>
+
+    <button id="btn">Отправить</button>
+
+
+    <script>
+        let text = document.querySelector('.text');
+        let btn = document.querySelector('#btn');
+
+
+        btn.addEventListener('click', () => {
+            let message = document.querySelector("#message").value;
+            let add = [];
+            if (message.search(/viagra/i) || message.search(/xxx/i)) {
+
+                let comment1 = message.replace(/viagra/gi, '***');
+                let comment2 = message.replace(/xxx/gi, '***');
+
+                add.push(`<p>${comment1}</p>`);
+                add.push(`<p>${comment2}</p>`);
+            } else {
+                add.push(`<p>${message}</p>`);
+            }
+            text.innerHTML += add;
+
+        })
+    </script>
+</body>
+
+</html>

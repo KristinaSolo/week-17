@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="nambers">Числа:</div>
+    <div id="max">Максимальное:</div>
+    <div id="min">Минимальное:</div>
+    <div id="average">Среднее арифметическое:</div>
+    <div id="summ">Сумма чисел:</div>
+    <div id="work">Произведение чисел:</div>
+    <button id="btn">Клик</button>
+    <script>
+        let btn = document.querySelector('#btn').addEventListener('click', () => {
+            let arr = [];
+            let count = 0;
+            let prod = 1;
+
+            for (let i = 0; i < 10; i++) {
+                arr[i] = Math.floor(Math.random() * 20 - 10);
+            }
+            let max = Math.max.apply(null, arr);
+            let min = Math.min.apply(null, arr);
+
+            for (let i = 0; i < arr.length; i++) {
+                count += arr[i];
+            }
+            let average = count / arr.length;
+
+
+            arr.forEach(function (e) {
+                prod *= e;
+            });
+            console.log(prod);
+
+            document.querySelector('#nambers').innerHTML = arr;
+            document.querySelector('#max').innerHTML = max;
+            document.querySelector('#min').innerHTML = min;
+            document.querySelector('#average').innerHTML = average;
+            document.querySelector('#summ').innerHTML = count;
+            document.querySelector('#work').innerHTML = prod;
+
+
+        })
+    </script>
+</body>
+
+</html>
